@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "304688838626",
+    "project_id": "marvel-comics-alan",
+    "storage_bucket": "marvel-comics-alan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304688838626:android:41b106aa3197460acd2bbb",
+        "android_client_info": {
+          "package_name": "com.example.prueba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304688838626-3aumt2ci5m1d3ql44gd8o4r9ji09g0iu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDILwjPn3jttI9byOCHqZ0bayDHCSL_qkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304688838626-3aumt2ci5m1d3ql44gd8o4r9ji09g0iu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
