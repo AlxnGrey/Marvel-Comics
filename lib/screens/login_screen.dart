@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:prueba/screens/profile_screen.dart';
+import 'package:prueba/screens/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget{
   const LoginScreen( {Key? key}) : super(key: key);
@@ -64,15 +65,19 @@ class _LoginScreenState extends State<LoginScreen>{
           ),
         ),
         const SizedBox(
-          height: 44.0,
+          height: 20.0,
         ),
         TextField(
           controller: _emailController,
           keyboardType: TextInputType.emailAddress,
           decoration: const InputDecoration(
-            hintText: "Correo",
-            prefixIcon: Icon(Icons.mail, color: Color.fromARGB(255, 255, 17, 0))
+            labelText: 'Correo',
+                labelStyle: TextStyle(
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 160, 160, 160)
           ),
+          prefixIcon: Icon(Icons.mail, color: Color.fromARGB(255, 255, 17, 0)))
         ),
         const SizedBox(
           height: 26.0,
@@ -81,28 +86,43 @@ class _LoginScreenState extends State<LoginScreen>{
           controller: _passwordController,
           obscureText: true,
           decoration: const InputDecoration(
-            hintText: "Contraseña",
-            prefixIcon: Icon(Icons.lock, color: Color.fromARGB(255, 255, 17, 0))
+            labelText: 'Contraseña',
+                  labelStyle: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 160, 160, 160)
+           
           ),
+           prefixIcon: Icon(Icons.lock, color: Color.fromARGB(255, 255, 17, 0)))
         ),
         const SizedBox(
           height: 12.0,
         ),
-        const Text(
-          "¿Olvidaste tu contraseña?",
+        Container(
+      width: MediaQuery.of(context).size.width,
+      height: 35,
+      alignment: Alignment.bottomRight,
+      child: TextButton(
+        child: const Text(
+          "¿No tienes cuenta? Click aqui.",
           style: TextStyle(color: Color.fromARGB(255, 255, 17, 0)),
+          textAlign: TextAlign.right,
         ),
+        onPressed: () => Navigator.push(
+            context, MaterialPageRoute(builder: (context) => SignupPage())),
+      ),
+    ),
         const SizedBox(
-          height: 88.0,
+          height: 60.0,
         ),
         Container(
           width: double.infinity,
           child: RawMaterialButton(
             fillColor: const Color.fromARGB(255, 255, 17, 0),
             elevation: 0.0,
-            padding: const EdgeInsets.symmetric(vertical: 20.0),
+            padding: const EdgeInsets.symmetric(vertical: 15.0),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.0)),
+              borderRadius: BorderRadius.circular(20.0)),
             onPressed: () async {
               User? user= await loginUsingEmailPassword(email: _emailController.text , password: _passwordController.text, context: context);
               print(user);
@@ -110,10 +130,12 @@ class _LoginScreenState extends State<LoginScreen>{
                 Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> ProfileScreen()));
               }
             },
-            child: const Text("Iniciar",
+            child: const Text("Iniciar sesión",
             style: TextStyle(
               color: Colors.white,
-              fontSize: 18.0,
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Montserrat'
             )),
           ),
         ),
