@@ -38,7 +38,11 @@ class _SignupPageState extends State<SignupPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('Registrate'),
+        title: 
+        Image.network('https://i.pinimg.com/originals/06/59/ee/0659ee4a07929a77ea29da8b6d996754.jpg',
+        width: 150,
+        ),
+        centerTitle: true,
       ),
 
       body: Padding(

@@ -1,3 +1,4 @@
+import 'package:prueba/screens/detail_comic.dart';
 import '/models/response_comics.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,9 @@ class ItemComic extends StatelessWidget {
           ),
         ),
         title: Text(comic.title),
-        trailing: const Icon(Icons.arrow_forward_ios),
+        trailing: const Icon(Icons.arrow_forward_ios, color: Color.fromARGB(255, 255, 17, 0),),
+        onTap: () => Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const DetailScreen())),
       ),
     );
   }

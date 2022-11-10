@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:prueba/screens/profile_screen.dart';
+import 'package:prueba/screens/comics_screen.dart';
+import 'package:prueba/screens/home_screen.dart';
 import 'package:prueba/screens/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget{
@@ -38,7 +39,11 @@ class _LoginScreenState extends State<LoginScreen>{
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('Bienvenidos'),
+        title: 
+        Image.network('https://i.pinimg.com/originals/06/59/ee/0659ee4a07929a77ea29da8b6d996754.jpg',
+        width: 150,
+        ),
+        centerTitle: true,
       ),
 
     body:
@@ -127,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen>{
               User? user= await loginUsingEmailPassword(email: _emailController.text , password: _passwordController.text, context: context);
               print(user);
               if(user != null){
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> ProfileScreen()));
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const HomePage()));
               }
             },
             child: const Text("Iniciar sesión",

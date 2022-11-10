@@ -4,22 +4,27 @@ import '/models/response_comics.dart';
 import '/widgets/item_comic.dart';
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({ Key? key }) : super(key: key);
+class ComicsScreen extends StatefulWidget {
+  const ComicsScreen({ Key? key }) : super(key: key);
   
   @override
-  _ProfileScreenState createState() => _ProfileScreenState();
+  _ComicsScreen createState() => _ComicsScreen();
 }
 
-class _ProfileScreenState extends State<ProfileScreen>{
+class _ComicsScreen extends State<ComicsScreen>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 255, 17, 0),
-          title: const Text('Comics de Marvel'),
+        backgroundColor: Colors.black,
+        title: 
+        Image.network('https://i.pinimg.com/originals/06/59/ee/0659ee4a07929a77ea29da8b6d996754.jpg',
+        width: 150,
         ),
-        body: FutureBuilder<List<Comic>>(
+        centerTitle: true,
+      ),
+        body:
+        FutureBuilder<List<Comic>>(
           future: apiComics(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
@@ -57,6 +62,8 @@ class _ProfileScreenState extends State<ProfileScreen>{
             }
             return const SizedBox();
           },
-        ));
+        ),
+
+        );
   }
 }
