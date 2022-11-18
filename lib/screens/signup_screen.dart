@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:prueba/screens/home_screen.dart';
 import 'package:prueba/screens/login_screen.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -25,10 +26,13 @@ class _SignupPageState extends State<SignupPage> {
       setState(() {
         _sucess = true;
         _userEmail = user.email!;
+        print('Cuenta guardada');
+         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const LoginScreen()));
       });
     } else {
       setState(() {
         _sucess = false;
+        print('No se guardo la cuenta');
       });
     }
   }
@@ -60,7 +64,7 @@ class _SignupPageState extends State<SignupPage> {
           ),
         ),
        const  Text(
-          "Registrate para iniciar",
+          "Registrate para iniciar.",
           style: TextStyle(
             color: Colors.black,
             fontSize: 44.0,
@@ -94,7 +98,7 @@ class _SignupPageState extends State<SignupPage> {
                   
                   controller: _passwordController,
                   decoration: InputDecoration(
-                      labelText: 'Contraseña',
+                      labelText: 'Contraseña (min 6 caracteres)',
                       labelStyle: TextStyle(
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.bold,
@@ -120,8 +124,6 @@ class _SignupPageState extends State<SignupPage> {
                     child: GestureDetector(
                         onTap: () async{
                           _register();
-                          Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => const LoginScreen()));
                         },
                         child: const Center(
                             child: Text(

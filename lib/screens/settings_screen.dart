@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:prueba/screens/comics_screen.dart';
+import 'package:prueba/screens/login_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({ Key? key }) : super(key: key);
@@ -19,6 +21,16 @@ class _SettingsScreen extends State<SettingsScreen>{
         width: 150,
         ),
         centerTitle: true,
+      ),
+      body: Center(
+        child: MaterialButton(
+          onPressed: (){
+            FirebaseAuth.instance.signOut();
+            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const LoginScreen()));
+          },
+          color: Color.fromARGB(255, 255, 0, 0),
+          child: Text('Cerrar sesión'),
+        ),
       ),
   );
   }

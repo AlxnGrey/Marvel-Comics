@@ -40,12 +40,15 @@ class Comic {
   Comic({
     required this.title,
     required this.poster,
+    required this.description,
   });
 
+  String description;
   String title;
   PosterImage poster;
 
   factory Comic.fromMap(Map<String, dynamic> json) => Comic(
+        description: json["description"] ??'',
         title: json["title"],
         poster: PosterImage.fromMap(json["thumbnail"]),
       );

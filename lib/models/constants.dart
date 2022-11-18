@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Constants {
   static List<String> listComicsFake =
-      List.generate(10, (int index) => 'Comic numero $index');
+      List.generate(100, (int index) => 'Comic numero $index');
 
 //Lista de colores para simular la imagen
   static const List<Color> colors = [

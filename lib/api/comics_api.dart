@@ -13,6 +13,7 @@ Future<List<Comic>> apiComics() async {
     'apikey': apiKey,
     'ts': ts,
     'hash': hash,
+    "limit": "100",
   });
 
   final response = await http.get(url);

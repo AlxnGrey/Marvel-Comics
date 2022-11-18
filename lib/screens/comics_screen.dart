@@ -38,8 +38,11 @@ class _ComicsScreen extends State<ComicsScreen>{
             if (snapshot.hasData) {
               return Column(
                 children: [
+                  const SizedBox(
+                    height: 20.0,
+                  ),
                   const Text(
-                    'Mis comics',
+                    'Comics disponibles:',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,

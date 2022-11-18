@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:prueba/screens/comics_screen.dart';
+import 'package:prueba/screens/home_page.dart';
 import 'package:prueba/screens/home_screen.dart';
 import 'package:prueba/screens/signup_screen.dart';
 
@@ -34,8 +34,6 @@ class _LoginScreenState extends State<LoginScreen>{
     TextEditingController _emailController = TextEditingController();
     TextEditingController _passwordController = TextEditingController();
 
-    //no funciona el appbar, pedir ayuda
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -45,14 +43,31 @@ class _LoginScreenState extends State<LoginScreen>{
         ),
         centerTitle: true,
       ),
-
     body:
+
+SingleChildScrollView(
+      physics: NeverScrollableScrollPhysics(),
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          minWidth: MediaQuery.of(context).size.width,
+          minHeight: MediaQuery.of(context).size.height,
+        ),
+        child: IntrinsicHeight(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              // CONTENT HERE
+    
     Padding(
     padding: const EdgeInsets.all(16.0),
+    
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const SizedBox(
+          height: 90.0,
+        ),
         const Text(
           "MARVEL COMICS",
           style: TextStyle(
@@ -62,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen>{
           ),
         ),
        const  Text(
-          "Inicia sesion para ingresar",
+          "Inicia sesión para ingresar.",
           style: TextStyle(
             color: Colors.black,
             fontSize: 44.0,
@@ -118,14 +133,14 @@ class _LoginScreenState extends State<LoginScreen>{
       ),
     ),
         const SizedBox(
-          height: 60.0,
+          height: 10.0,
         ),
         Container(
           width: double.infinity,
           child: RawMaterialButton(
             fillColor: const Color.fromARGB(255, 255, 17, 0),
             elevation: 0.0,
-            padding: const EdgeInsets.symmetric(vertical: 15.0),
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0)),
             onPressed: () async {
@@ -133,6 +148,9 @@ class _LoginScreenState extends State<LoginScreen>{
               print(user);
               if(user != null){
                 Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const HomePage()));
+              }
+              else{
+                print('Usuario no encontrado');
               }
             },
             child: const Text("Iniciar sesión",
@@ -146,7 +164,14 @@ class _LoginScreenState extends State<LoginScreen>{
         ),
       ],
     ),
-  ),);
+    )
+            ]
+          ),
+        ),
+      ),
+    ),
+
+    );
   }
 }
 

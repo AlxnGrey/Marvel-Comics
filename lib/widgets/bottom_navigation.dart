@@ -28,6 +28,7 @@ class _BNavigatorState extends State<BNavigator> {
     items: const [
       BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Comics'),
       BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
+      BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favorites'),
     ],
   );
   }
