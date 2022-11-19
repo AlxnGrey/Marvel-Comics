@@ -11,8 +11,8 @@ class Routes extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> myList = [
       const ComicsScreen(),
-      const SettingsScreen(),
       const FavoritesComicsPage(),
+      const SettingsScreen(),
     ];
     return myList[index];
   }

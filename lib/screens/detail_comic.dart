@@ -66,22 +66,12 @@ class _DetailScreen extends State<DetailScreen>{
                 
                   IconButton(
               onPressed: () {
-                providerFavoritesComics.addComic(comicInfo);
+                providerFavoritesComics.toggleFavorite(comicInfo);
               },
-              icon: const Icon(
-                Icons.favorite_outline,
-                size: 40,
-              ),
+              icon: providerFavoritesComics.isExist(comicInfo)
+                  ? const Icon(Icons.favorite, color: Colors.red)
+                  : const Icon(Icons.favorite_border),
             ),
-
-//                IconButton(
-//                  icon: const Icon(
-//                    Icons.save,
-//                    size: 27.0,
-//                  ),
-//                  color: Color.fromARGB(255, 255, 17, 0),
-//                  onPressed: (){},
-//                ),
                 const Text(
                   'Guardar como favorito',
                   style: TextStyle(color: Color.fromARGB(255, 255, 17, 0)),

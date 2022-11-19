@@ -1,13 +1,40 @@
+import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 import 'package:prueba/models/response_comics.dart';
-import 'package:flutter/foundation.dart';
 
 class ComicsFavoritesProvider extends ChangeNotifier {
   List<Comic> _listFavoriteComics = [];
 
   List<Comic> get listFavoriteList => _listFavoriteComics;
 
-  void addComic(Comic comic) {
-    _listFavoriteComics.add(comic);
+  void toggleFavorite(Comic comic) {
+    final isExist = _listFavoriteComics.contains(comic);
+      if (isExist) {
+      _listFavoriteComics.remove(comic);
+    } else {
+      _listFavoriteComics.add(comic);
+    }
     notifyListeners();
   }
+
+    bool isExist(Comic comic) {
+    final isExist = _listFavoriteComics.contains(comic);
+    return isExist;
+  }
+
+  void clearFavorite() {
+    _listFavoriteComics = [];
+    notifyListeners();
+  }
+
+  static ComicsFavoritesProvider of(
+    BuildContext context, {
+    bool listen = true,
+  }) {
+    return Provider.of<ComicsFavoritesProvider>(
+      context,
+      listen: listen,
+    );
+  }
+  
 }

@@ -27,7 +27,7 @@ class _SignupPageState extends State<SignupPage> {
         _sucess = true;
         _userEmail = user.email!;
         print('Cuenta guardada');
-         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const LoginScreen()));
+         Navigator.of(context).pushReplacementNamed('home');
       });
     } else {
       setState(() {
