@@ -29,7 +29,7 @@ class _SettingsScreen extends State<SettingsScreen>{
             Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const LoginScreen()));
           },
           color: Color.fromARGB(255, 255, 0, 0),
-          child: Text('Cerrar sesión'),
+          child: Text('Cerrar sesión.'),
         ),
       ),
   );
